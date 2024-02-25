@@ -1,0 +1,12 @@
+Header:
+    logo
+    nav options (cart, login/signin, help)
+Body:
+    search and filter container
+    search
+    filters
+    card container
+Footer:
+    links
+    about
+    T&c
