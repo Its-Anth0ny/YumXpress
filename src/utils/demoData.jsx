@@ -1,24 +1,4 @@
-import React from "react"
-import ReactDOM from "react-dom/client"
-import logo from './media/yumxpress-high-resolution-logo-transparent.png';
-
-const Heading = () => {
-    return (<div className="header">
-        <div className="logoContainer">
-            <img className="logo" src={logo} />
-        </div>
-        <div className="navOptions">
-            <ul>
-                <li>Home</li>
-                <li>Help</li>
-                <li>Cart</li>
-                <li>Login/Signup</li>
-            </ul>
-        </div>
-    </div>)
-}
-
-const resObj = [
+export const resObj = [
     {
         "info": {
           "id": "45606",
@@ -1317,42 +1297,3 @@ const resObj = [
         }
       },
 ]
-
-const ResCard = (props) => {
-    const {resData} = props;
-    return (
-        <div className="resCard" >
-            <div className="imgContainer">
-                <img className="resImg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.info.cloudinaryImageId}/>
-            </div>
-            <h3>{resData.info.name}</h3>
-            <h4>{resData.info.avgRating+"⭐"}</h4>
-            <h4>{resData.info.sla.deliveryTime+" mins"}</h4>
-            <h4>{resData.info.cuisines.join(", ")}</h4>
-        </div>
-    )
-}
-
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search"> Search </div>
-            <div className="resContainer">
-                {
-                    resObj.map(restaurant => <ResCard key={restaurant.info.id} resData={restaurant}/>)
-                }
-            </div>
-        </div>
-    )
-}
-
-const AppLayout = () => {
-    return (<div className="AppLay">
-        <Heading/>
-        <Body/>
-    </div>)
-}
-
-const root= ReactDOM.createRoot(document.getElementById("root"))
-
-root.render(<AppLayout/>)
