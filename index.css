@@ -48,7 +48,36 @@
 /* .body{
     justify-content: center;
 } */
+.filterContainer{
+    display: flex;
+    padding: 10px;
+}
+.search{
+    margin-left: 85px;
+}
+.searchBtn{
+    margin-left: 5px;
+}
 .filter{
-    margin-left: 130px;
+    margin-left: 35px;
     align-self: center;
+}
+
+.allCardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.cardStruct{
+    margin: 25px;
+    padding: 5px;
+    width: 200px;
+    height: 300px;
+    background-color: rgb(242, 227, 255);
+}
+
+.loginBtn{
+    margin-left: 10px;
+    width: 60px;
+    height: 40px;
 }
