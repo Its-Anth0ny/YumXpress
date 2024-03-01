@@ -8,6 +8,13 @@ const Shimmer = () => {
         <div className="cardStruct"> </div>
         <div className="cardStruct"> </div>
         <div className="cardStruct"> </div>
+        <div className="cardStruct"> </div>
+        <div className="cardStruct"> </div>
+        <div className="cardStruct"> </div>
+        <div className="cardStruct"> </div>
+        <div className="cardStruct"> </div>
+        <div className="cardStruct"> </div>
+        <div className="cardStruct"> </div>
     </div>
 }
 
