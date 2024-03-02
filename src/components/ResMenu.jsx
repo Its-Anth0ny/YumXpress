@@ -1,22 +1,23 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constants";
+import useMenuData from "../utils/useMenuData";
 
 const ResMenu = () => {
-    const [menuData, setMenuData] = useState(null);
     const resMenuId = useParams();
-    console.log(resMenuId);
 
-    useEffect(() => {
-        fetchMenu();
-    }, []);
+    const menuData = useMenuData(resMenuId);
 
-    const fetchMenu = async () => {
-        const data = await fetch(MENU_API + resMenuId.resId);
-        const json = await data.json();
-        console.log(json);
-        setMenuData(json);
-    };
+    // console.log(resMenuId);
+
+    // useEffect(() => {
+    //     fetchMenu();
+    // }, []);
+
+    // const fetchMenu = async () => {
+    //     const data = await fetch(MENU_API + resMenuId.resId);
+    //     const json = await data.json();
+    //     // console.log(json);
+    //     setMenuData(json);
+    // };
 
     if (menuData === null) return <h1>Loading...</h1>;
 
@@ -27,7 +28,7 @@ const ResMenu = () => {
         menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
             ?.card?.card;
 
-    console.log(itemCards);
+    // console.log(itemCards);
 
     return (
         <div className="resMenu">
@@ -40,7 +41,9 @@ const ResMenu = () => {
                 {itemCards.map((curr) => (
                     <li key={curr.card.info.id}>
                         {curr.card.info.name + " "}-{" Rs. "}
-                        {curr.card.info.price / 100};
+                        {curr.card.info.price / 100 ||
+                            curr.card.info.defaultPrice / 100}
+                        ;
                     </li>
                 ))}
             </ul>

@@ -2,22 +2,22 @@ import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { RES_LINK } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
-const Body = () => {
-    const [resList, setResList] = useState([]);
+function Body() {
+    const [resList, setResList] = useState(null);
     const [searchList, setSearchList] = useState([]);
+    const [inputValue, setInputValue] = useState("");
+    const onlineCheck = useOnlineStatus();
 
     useEffect(() => {
         fetchData();
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.95250&lng=75.71050&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        );
-
+        const data = await fetch(RES_LINK);
         const jsonData = await data.json();
-
         //optional chaining
         setResList(
             jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
@@ -29,12 +29,14 @@ const Body = () => {
         );
     };
 
-    const [inputValue, setInputValue] = useState("");
-
     //Conditional Rendering
-    if (resList.length === 0) {
+    if (resList === null) {
         // return <h1>Loading...</h1>;
         return <Shimmer />;
+    }
+
+    if (onlineCheck === false) {
+        return <h1>Check if you are using College Wifi...</h1>;
     }
 
     return (
@@ -90,6 +92,6 @@ const Body = () => {
             </div>
         </div>
     );
-};
+}
 
 export default Body;

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import logo from "../utils/yumxpress-high-resolution-logo-transparent.png";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
     const [inOutBtn, setInOutBtn] = useState("Login");
-
+    const checkOnline = useOnlineStatus();
     return (
         <div className="header">
             <div className="logoContainer">
@@ -12,6 +13,10 @@ const Header = () => {
             </div>
             <div className="navOptions">
                 <ul>
+                    <li className="onlineStatus">
+                        {" "}
+                        Online Status : {checkOnline ? "🟢" : "🔴"}
+                    </li>
                     <li>
                         <Link to="/">Home</Link>
                     </li>
