@@ -1,8 +1,7 @@
 // import React, { Suspense, lazy } from "react";
-import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
 import ResMenu from "./components/ResMenu";
@@ -49,6 +48,8 @@ const appRouter = createBrowserRouter([
     },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+export default appRouter;
 
-root.render(<RouterProvider router={appRouter} />);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// root.render(<RouterProvider router={appRouter} />);
