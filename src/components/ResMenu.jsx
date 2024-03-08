@@ -3,6 +3,7 @@ import useMenuData from "../utils/useMenuData";
 
 const ResMenu = () => {
     const resMenuId = useParams();
+    console.log(resMenuId);
 
     const menuData = useMenuData(resMenuId);
 

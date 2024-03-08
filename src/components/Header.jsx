@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
-    const [inOutBtn, setInOutBtn] = useState("Login");
+    // const [inOutBtn, setInOutBtn] = useState("Login");
     const checkOnline = useOnlineStatus();
     return (
         <div className="header">
@@ -17,19 +17,21 @@ const Header = () => {
                         {" "}
                         Online Status : {checkOnline ? "🟢" : "🔴"}
                     </li>
-                    <li>
+                    {/* <div></div> */}
+                    <li className="home">
                         <Link to="/">Home</Link>
                     </li>
-                    <li>
+                    <li className="contact">
                         <Link to="/contact">Contact</Link>
                     </li>
-                    <li>
+                    <li className="about">
                         <Link to="/about">About Us</Link>
                     </li>
                     {/* <li>
                     <Link to="/">Home</Link>
                 </li> */}
-                    <button
+
+                    {/* <button
                         className="loginBtn"
                         onClick={() => {
                             inOutBtn === "Login"
@@ -38,7 +40,7 @@ const Header = () => {
                         }}
                     >
                         {inOutBtn}
-                    </button>
+                    </button> */}
                 </ul>
             </div>
         </div>
