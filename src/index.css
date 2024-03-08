@@ -127,17 +127,21 @@ body{
   align-self: center;
 }
 
-.allCardContainer{
+.shimmerCardContainer{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #dedbf7;
 }
 .cardStruct{
+  width: 15rem;
+  height: 18rem;
+  border-radius: 20px;
   margin: 25px;
-  padding: 5px;
-  width: 200px;
-  height: 300px;
-  background-color: #f2e3ff;
+  padding: 20px;
+  /* width: 200px; */
+  background-color: #c1b9f0;
+  border: 1px dotted black;
 }
 
 .loginBtn{
