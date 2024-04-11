@@ -3,7 +3,7 @@ import useMenuData from "../utils/useMenuData";
 
 const ResMenu = () => {
     const resMenuId = useParams();
-    console.log(resMenuId);
+    // console.log(resMenuId);
 
     const menuData = useMenuData(resMenuId);
 
@@ -23,10 +23,10 @@ const ResMenu = () => {
     if (menuData === null) return <h1>Loading...</h1>;
 
     const { name, costForTwoMessage, avgRating, cuisines } =
-        menuData?.data?.cards[0]?.card?.card?.info;
+        menuData?.data?.cards[2]?.card?.card?.info;
 
     const { itemCards } =
-        menuData?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
+        menuData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]
             ?.card?.card;
 
     // console.log(itemCards);

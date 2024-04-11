@@ -1,6 +1,7 @@
 // import React, { Suspense, lazy } from "react";
 import Header from "./components/Header";
 import Body from "./components/Body";
+// import Dashboard from "./components/Dashboard";
 // import { createBrowserRouter, Outlet } from "react-router-dom";
 import { Route, Routes, Outlet } from "react-router-dom";
 import AboutUs from "./components/AboutUs";
@@ -21,6 +22,7 @@ const App = () => {
                     </div>
                 }
             >
+                {/* <Route path="/" element={<Dashboard />} /> */}
                 <Route path="/" element={<Body />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/contact" element={<ContactUs />} />
