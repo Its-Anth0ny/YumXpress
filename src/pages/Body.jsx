@@ -1,44 +1,48 @@
-import ResCard from "./ResCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import { RES_LINK } from "../utils/constants";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import useResData from "../utils/useResData";
 import { Search } from "lucide-react";
+import ResCard from "../components/ResCard";
+import Shimmer from "../components/Shimmer";
+import { RES_LINK } from "../utils/constants";
+// import useOnlineStatus from "../utils/useOnlineStatus";
+// import useResData from "../utils/useResData";
 
 const Body = () => {
-    const resList = useResData();
-    // const [resList, setResList] = useState(null);
+    const [resList, setResList] = useState([]);
     const [searchList, setSearchList] = useState([]);
     const [inputValue, setInputValue] = useState("");
-    const onlineCheck = useOnlineStatus();
+    // const onlineCheck = useOnlineStatus();
 
     useEffect(() => {
         fetchData();
     }, []);
 
-    const fetchData = async () => {
-        const data = await fetch(RES_LINK);
-        const jsonData = await data.json();
-        // setResList(
-        //     jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        //         ?.restaurants
-        // );
-        setSearchList(
-            jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-                ?.restaurants
-        );
-    };
+    async function fetchData() {
+        try {
+            const data = await fetch(RES_LINK);
+            const jsonData = await data.json();
+            const restaurantData =
+                jsonData?.data?.cards[1]?.card?.card?.gridElements
+                    ?.infoWithStyle?.restaurants || [];
+
+            // Set both resList and searchList with the fetched data
+            // console.log("Data fetched");
+            // console.log(restaurantData);
+            setResList(restaurantData);
+            setSearchList(restaurantData);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
 
     //Conditional Rendering
-    if (resList === null) {
+    if (searchList.length === 0) {
         return <Shimmer />;
     }
 
-    if (onlineCheck === false) {
-        return <h1>Check if you are using College Wifi...</h1>;
-    }
+    // if (onlineCheck === false) {
+    //     return <h1>Check if you are using College Wifi...</h1>;
+    // }
 
     return (
         <div className="">
@@ -70,21 +74,29 @@ const Body = () => {
                 </div>
                 <div className="flex justify-center items-center space-x-4">
                     <button
-                        className="h-[40px] bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-500 rounded-2xl px-[10px]"
+                        className="h-[40px] bg-purple-100 hover:bg-purple-200 border-2 border-solid border-purple-500 rounded-2xl px-[10px]"
                         onClick={() => {
-                            const newresObj = searchList.filter(
-                                (res) => res.info.avgRating > 4.0
-                            );
-                            setSearchList(newresObj);
+                            setSearchList(resList);
                         }}
                     >
-                        Top 4⭐ Restaurants
+                        Reset
                     </button>
                     <button
                         className="h-[40px] bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-500 rounded-2xl px-[10px]"
                         onClick={() => {
                             const newresObj = searchList.filter(
-                                (res) => res.info.avgRating > 4.0
+                                (res) => res?.info?.avgRating >= 4.5
+                            );
+                            setSearchList(newresObj);
+                        }}
+                    >
+                        Above 4.5⭐
+                    </button>
+                    <button
+                        className="h-[40px] bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-500 rounded-2xl px-[10px]"
+                        onClick={() => {
+                            const newresObj = searchList.filter(
+                                (res) => res?.info?.sla?.deliveryTime <= 30
                             );
                             setSearchList(newresObj);
                         }}
@@ -94,9 +106,13 @@ const Body = () => {
                     <button
                         className="h-[40px] bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-500 rounded-2xl px-[10px]"
                         onClick={() => {
-                            const newresObj = searchList.filter(
-                                (res) => res.info.avgRating > 4.0
-                            );
+                            const newresObj = resList.filter((res) => {
+                                res?.info?.sla?.deliveryTime <= 45;
+                            });
+                            newresObj.map((res) => {
+                                console.log(res?.info?.sla?.deliveryTime);
+                            });
+
                             setSearchList(newresObj);
                         }}
                     >

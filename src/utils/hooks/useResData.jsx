@@ -1,4 +1,4 @@
-import { RES_LINK } from "./constants";
+import { RES_LINK } from "../constants";
 import { useEffect, useState } from "react";
 
 const useResData = () => {

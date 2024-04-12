@@ -1,12 +1,13 @@
 // import React, { Suspense, lazy } from "react";
-import Header from "./components/Header";
-import Body from "./components/Body";
-// import Dashboard from "./components/Dashboard";
-// import { createBrowserRouter, Outlet } from "react-router-dom";
 import { Route, Routes, Outlet } from "react-router-dom";
-import AboutUs from "./components/AboutUs";
-import ContactUs from "./components/ContactUs";
-import ResMenu from "./components/ResMenu";
+// import { createBrowserRouter, Outlet } from "react-router-dom";
+import Header from "./components/Header";
+import Dashboard from "./pages/Dashboard";
+import Body from "./pages/Body";
+import Recipes from "./pages/Recipes";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
+import ResMenu from "./pages/ResMenu";
 
 // const AboutUs = lazy(() => import("./components/AboutUs"));
 
@@ -22,8 +23,9 @@ const App = () => {
                     </div>
                 }
             >
-                {/* <Route path="/" element={<Dashboard />} /> */}
-                <Route path="/" element={<Body />} />
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/list" element={<Body />} />
+                <Route path="/recipes" element={<Recipes />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/restaurant/:id" element={<ResMenu />} />
@@ -31,6 +33,8 @@ const App = () => {
         </Routes>
     );
 };
+
+export default App;
 
 // const AppLayout = () => {
 //     return (
@@ -71,8 +75,6 @@ const App = () => {
 //         ],
 //     },
 // ]);
-
-export default App;
 
 // const root = ReactDOM.createRoot(document.getElementById("root"));
 

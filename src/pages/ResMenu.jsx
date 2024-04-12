@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import useMenuData from "../utils/useMenuData";
+import useMenuData from "../utils/hooks/useMenuData";
 
 const ResMenu = () => {
     const resMenuId = useParams();

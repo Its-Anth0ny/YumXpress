@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MENU_API } from "./constants";
+import { MENU_API } from "../constants";
 
 const useMenuData = (resMenuId) => {
     const url =

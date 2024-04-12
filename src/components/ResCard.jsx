@@ -33,4 +33,15 @@ const ResCard = (props) => {
     );
 };
 
+// export const WithProLabel = (ResCard) => {
+//     return () => {
+//         return (
+//             <div>
+//                 <p className="p-3 bg-orange-200">P</p>
+//                 <ResCard pro/>
+//             </div>
+//         );
+//     };
+// };
+
 export default ResCard;
