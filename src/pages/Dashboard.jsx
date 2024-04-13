@@ -79,7 +79,7 @@ export default function Home() {
                 <div className="flex justify-center items-center">
                     <img
                         className="w-12 h-12 rounded-full ring-2 ring-white"
-                        src="../../public/propic.jpg"
+                        src="/propic.jpg"
                         alt=""
                     />
                 </div>

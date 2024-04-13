@@ -7,7 +7,7 @@ const ResMenu = () => {
 
     const menuData = useMenuData(resMenuId);
 
-    // console.log(resMenuId);
+    console.log(resMenuId);
 
     // useEffect(() => {
     //     fetchMenu();
