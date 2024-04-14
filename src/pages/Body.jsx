@@ -74,7 +74,7 @@ const Body = () => {
                 </div>
                 <div className="flex justify-center items-center space-x-4">
                     <button
-                        className="h-[40px] bg-purple-100 hover:bg-purple-200 border-2 border-solid border-purple-500 rounded-2xl px-[10px]"
+                        className="h-[40px] shadow-sm bg-red-100 hover:bg-red-200 border-2 border-solid border-red-300 rounded-md px-[10px]"
                         onClick={() => {
                             setSearchList(resList);
                         }}
@@ -82,7 +82,7 @@ const Body = () => {
                         Reset
                     </button>
                     <button
-                        className="h-[40px] bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-500 rounded-2xl px-[10px]"
+                        className="h-[40px] shadow-sm bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-300 rounded-md px-[10px]"
                         onClick={() => {
                             const newresObj = searchList.filter(
                                 (res) => res?.info?.avgRating >= 4.5
@@ -93,7 +93,7 @@ const Body = () => {
                         Above 4.5⭐
                     </button>
                     <button
-                        className="h-[40px] bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-500 rounded-2xl px-[10px]"
+                        className="h-[40px] shadow-sm bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-300 rounded-md px-[10px]"
                         onClick={() => {
                             const newresObj = searchList.filter(
                                 (res) => res?.info?.sla?.deliveryTime <= 30
@@ -104,7 +104,7 @@ const Body = () => {
                         Veg Only
                     </button>
                     <button
-                        className="h-[40px] bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-500 rounded-2xl px-[10px]"
+                        className="h-[40px] shadow-sm bg-yellow-100 hover:bg-yellow-200 border-2 border-solid border-yellow-300 rounded-md px-[10px]"
                         onClick={() => {
                             const newresObj = resList.filter((res) => {
                                 res?.info?.sla?.deliveryTime <= 45;
