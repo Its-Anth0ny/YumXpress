@@ -28,4 +28,13 @@ const Shimmer = () => {
     );
 };
 
+export const AboutShimmer = () => {
+    return (
+        <div className="flex flex-col justify-center items-center">
+            <div className="mt-6 h-[350px] w-6/12 rounded-lg shadow-lg bg-gray-100"></div>
+            <div className="mt-6 h-[350px] w-6/12 rounded-lg shadow-lg bg-gray-100"></div>
+        </div>
+    );
+};
+
 export default Shimmer;

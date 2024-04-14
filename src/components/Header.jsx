@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import logo from "../utils/yumxpress-high-resolution-logo-transparent.png";
+// import logo from "../utils/yumxpress-high-resolution-logo-transparent.png";
 import { Link } from "react-router-dom";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 
@@ -7,9 +7,10 @@ const Header = () => {
     // const [inOutBtn, setInOutBtn] = useState("Login");
     // const checkOnline = useOnlineStatus();
     return (
-        <div className="flex flex-col justify-center items-center pt-[25px]">
+        <div className="flex flex-col justify-center items-center pt-[15px]">
             <div className="w-[255px]">
-                <img className="logo" src={logo} />
+                {/* logo color = #eab308 */}
+                <img className="logo" src={`/Logo3.png`} />
             </div>
             <div className="h-[1.5px] max-w-[800px] mt-[15px]">
                 <div className="h-full w-[800px] bg-slate-200 rounded-md"></div>
@@ -34,7 +35,7 @@ const Header = () => {
                         Recipes
                     </Link>
                     <Link
-                        to="/contact"
+                        to="/cart"
                         className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
                     >
                         Cart

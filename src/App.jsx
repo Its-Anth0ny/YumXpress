@@ -8,6 +8,7 @@ import Recipes from "./pages/Recipes";
 import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import ResMenu from "./pages/ResMenu";
+import Cart from "./pages/Cart";
 
 // const AboutUs = lazy(() => import("./components/AboutUs"));
 
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path="/list" element={<Body />} />
                 <Route path="/recipes" element={<Recipes />} />
                 <Route path="/about" element={<AboutUs />} />
+                <Route path="/cart" element={<Cart />} />
                 <Route path="/contact" element={<ContactUs />} />
                 <Route path="/list/restaurant/:id" element={<ResMenu />} />
             </Route>
