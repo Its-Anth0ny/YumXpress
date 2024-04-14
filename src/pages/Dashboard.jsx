@@ -14,7 +14,7 @@ export default function Home() {
         // Rotate the images every 2 seconds
         const interval = setInterval(() => {
             setRotationIndex((prevIndex) => (prevIndex + 1) % 4);
-        }, 3000);
+        }, 2000);
 
         // Clear the interval on component unmount
         return () => clearInterval(interval);

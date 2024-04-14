@@ -27,9 +27,9 @@ const App = () => {
     const { avatar_url, name, bio, login } = userData;
 
     return (
-        <div className="min-h-screen flex flex-col justify-center items-center bg-white font-sans text-gray-800">
+        <div className="flex flex-col justify-center items-center bg-white font-sans text-gray-800">
             {loading ? (
-                <div className="text-xl">
+                <div className="w-full max-w-2xl">
                     <AboutShimmer />
                 </div>
             ) : (

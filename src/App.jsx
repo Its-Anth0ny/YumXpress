@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Body from "./pages/Body";
 import Recipes from "./pages/Recipes";
 import AboutUs from "./pages/AboutUs";
-import ContactUs from "./pages/ContactUs";
+// import ContactUs from "./pages/ContactUs";
 import ResMenu from "./pages/ResMenu";
 import Cart from "./pages/Cart";
 
@@ -29,7 +29,7 @@ const App = () => {
                 <Route path="/recipes" element={<Recipes />} />
                 <Route path="/about" element={<AboutUs />} />
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/contact" element={<ContactUs />} />
+                {/* <Route path="/contact" element={<ContactUs />} /> */}
                 <Route path="/list/restaurant/:id" element={<ResMenu />} />
             </Route>
         </Routes>
