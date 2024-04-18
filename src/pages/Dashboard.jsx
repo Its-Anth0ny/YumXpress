@@ -37,7 +37,7 @@ export default function Home() {
                         {/* <img src="/yumlogo2.png" alt="" className="w-[50px]" /> */}
                     </p>
                     <div className="mt-10 flex justify-center items-center space-x-10">
-                        <button
+                        {/* <button
                             onClick={async () => {
                                 await fetchCurrentLocation();
                                 navigate("/restaurant");
@@ -46,7 +46,7 @@ export default function Home() {
                         >
                             <LocateFixed className="w-6 h-6 mr-2" />
                             Location
-                        </button>
+                        </button> */}
                         <button
                             onClick={async () => {
                                 await addDemoCoordinate();
