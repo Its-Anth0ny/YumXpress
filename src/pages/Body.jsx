@@ -19,7 +19,9 @@ const Body = () => {
 
     async function fetchData() {
         try {
-            const data = await fetch(RES_LINK);
+            const data = await fetch(
+                "https://thingproxy-760k.onrender.com/fetch/" + RES_LINK
+            );
             const jsonData = await data.json();
             const restaurantData =
                 jsonData?.data?.cards[1]?.card?.card?.gridElements
