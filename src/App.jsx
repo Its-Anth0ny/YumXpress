@@ -9,30 +9,34 @@ import AboutUs from "./pages/AboutUs";
 // import ContactUs from "./pages/ContactUs";
 import ResMenu from "./pages/ResMenu";
 import Cart from "./pages/Cart";
+import appStore from "./redux/appStore";
+import { Provider } from "react-redux";
 
 // const AboutUs = lazy(() => import("./components/AboutUs"));
 
 const App = () => {
     return (
-        <Routes>
-            <Route
-                path="/"
-                element={
-                    <div>
-                        <Header />
-                        <Outlet />
-                    </div>
-                }
-            >
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/list" element={<Body />} />
-                <Route path="/recipes" element={<Recipes />} />
-                <Route path="/about" element={<AboutUs />} />
-                <Route path="/cart" element={<Cart />} />
-                {/* <Route path="/contact" element={<ContactUs />} /> */}
-                <Route path="/list/restaurant/:id" element={<ResMenu />} />
-            </Route>
-        </Routes>
+        <Provider store={appStore}>
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <div>
+                            <Header />
+                            <Outlet />
+                        </div>
+                    }
+                >
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/list" element={<Body />} />
+                    <Route path="/recipes" element={<Recipes />} />
+                    <Route path="/about" element={<AboutUs />} />
+                    <Route path="/cart" element={<Cart />} />
+                    {/* <Route path="/contact" element={<ContactUs />} /> */}
+                    <Route path="/list/restaurant/:id" element={<ResMenu />} />
+                </Route>
+            </Routes>
+        </Provider>
     );
 };
 

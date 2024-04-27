@@ -4,6 +4,7 @@ import { Search } from "lucide-react";
 import ResCard from "../components/ResCard";
 import Shimmer from "../components/Shimmer";
 import { RES_LINK } from "../utils/constants";
+import useDebounce from "../utils/hooks/useDebounce";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 // import useResData from "../utils/useResData";
 
@@ -11,6 +12,8 @@ const Body = () => {
     const [resList, setResList] = useState([]);
     const [searchList, setSearchList] = useState([]);
     const [inputValue, setInputValue] = useState("");
+    const debounceValue = useDebounce(resList, 1000);
+    const [initalRender, setInitialRender] = useState(true);
     // const onlineCheck = useOnlineStatus();
 
     useEffect(() => {
@@ -26,10 +29,7 @@ const Body = () => {
             const restaurantData =
                 jsonData?.data?.cards[1]?.card?.card?.gridElements
                     ?.infoWithStyle?.restaurants || [];
-
             // Set both resList and searchList with the fetched data
-            // console.log("Data fetched");
-            // console.log(restaurantData);
             setResList(restaurantData);
             setSearchList(restaurantData);
         } catch (error) {
@@ -37,7 +37,24 @@ const Body = () => {
         }
     }
 
-    //Conditional Rendering
+    useEffect(() => {
+        if (!initalRender) {
+            // console.log("Debounce Value:");
+            handleSearch();
+        } else {
+            setInitialRender(false);
+        }
+    }, [debounceValue]);
+
+    const handleSearch = () => {
+        const filteredList = resList.filter((restaurant) => {
+            return restaurant.info.name
+                .toLowerCase()
+                .includes(inputValue.toLowerCase());
+        });
+        setSearchList(filteredList);
+    };
+
     if (searchList.length === 0) {
         return <Shimmer />;
     }
@@ -47,9 +64,9 @@ const Body = () => {
     // }
 
     return (
-        <div className="">
+        <div className="w-full h-full">
             <div className="flex justify-between py-8 pl-[130px] pr-[110px]">
-                <div className="flex justify-center items-center space-x-2">
+                <div className="flex items-center justify-center space-x-2">
                     <input
                         type="text"
                         placeholder="Search for Restaurants..."
@@ -59,22 +76,11 @@ const Body = () => {
                             setInputValue(e.target.value);
                         }}
                     />
-                    <button
-                        className=""
-                        onClick={() => {
-                            setSearchList(
-                                resList.filter((restaurant) => {
-                                    return restaurant.info.name
-                                        .toLowerCase()
-                                        .includes(inputValue.toLowerCase());
-                                })
-                            );
-                        }}
-                    >
+                    <button className="" onClick={() => handleSearch()}>
                         <Search className="size-7 width-[4px]" />
                     </button>
                 </div>
-                <div className="flex justify-center items-center space-x-4">
+                <div className="flex items-center justify-center space-x-4">
                     <button
                         className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-[8px]"
                         onClick={() => {
@@ -86,7 +92,7 @@ const Body = () => {
                     <button
                         className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-[8px]"
                         onClick={() => {
-                            const newresObj = searchList.filter(
+                            const newresObj = resList.filter(
                                 (res) => res?.info?.avgRating >= 4.5
                             );
                             setSearchList(newresObj);
@@ -97,24 +103,9 @@ const Body = () => {
                     <button
                         className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-[8px]"
                         onClick={() => {
-                            const newresObj = searchList.filter(
-                                (res) => res?.info?.sla?.deliveryTime <= 30
+                            const newresObj = resList.filter(
+                                (res) => res?.info?.sla?.deliveryTime <= 45
                             );
-                            setSearchList(newresObj);
-                        }}
-                    >
-                        Veg Only
-                    </button>
-                    <button
-                        className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-[8px]"
-                        onClick={() => {
-                            const newresObj = resList.filter((res) => {
-                                res?.info?.sla?.deliveryTime <= 45;
-                            });
-                            newresObj.map((res) => {
-                                console.log(res?.info?.sla?.deliveryTime);
-                            });
-
                             setSearchList(newresObj);
                         }}
                     >

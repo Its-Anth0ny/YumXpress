@@ -7,24 +7,24 @@ const ResCard = (props) => {
     return (
         <div className="w-[250px] h-[350px] rounded overflow-hidden shadow-lg my-5 mx-3 bg-[#FFF3CF] hover:shadow-2xl">
             <img
-                className="w-full h-48 object-cover object-center"
+                className="object-cover object-center w-full h-48"
                 src={CDN_LINK + resData.info.cloudinaryImageId}
                 alt={resData.info.name}
             />
             <div className="h-[158px] px-6 pt-4 pb-6 flex flex-col justify-between">
                 <div className="mb-2">
-                    <h4 className="text-lg font-semibold text-gray-800">
+                    <h4 className="text-lg font-semibold text-gray-800 h-[56px] overflow-hidden overflow-ellipsis">
                         {resData.info.name}
                     </h4>
                     <p className="text-sm text-gray-600">
                         {resData.info.cuisines.slice(0, 3).join(", ")}
                     </p>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                     <div className="flex items-center">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5 text-yellow-600 mr-1"
+                            className="w-5 h-5 mr-1 text-yellow-600"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                         >
@@ -38,7 +38,7 @@ const ResCard = (props) => {
                             {resData.info.avgRating} ⭐
                         </p>
                     </div>
-                    <p className="text-sm text-gray-600 flex items-center">
+                    <p className="flex items-center text-sm text-gray-600">
                         <Timer size={16} className="mr-1" />
                         {resData.info.sla.deliveryTime} mins
                     </p>

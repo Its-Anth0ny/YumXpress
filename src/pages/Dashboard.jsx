@@ -23,26 +23,26 @@ export default function Home() {
     return (
         <div className="h-100% flex flex-col justify-between items-stretch">
             <div className="w-full flex space-x-[30px]">
-                <div className="mx-24 mt-14 text-center">
-                    <h1 className="text-8xl font-bold text-gray-800">
+                <div className="mx-24 text-center mt-14">
+                    <h1 className="font-bold text-gray-800 text-8xl">
                         We <span className="text-yellow-500">Teleport</span>{" "}
                         food.
                     </h1>
-                    <p className="text-6xl text-gray-500 mb-2 mt-8">
+                    <p className="mt-8 mb-2 text-6xl text-gray-500">
                         Don't Ask HOW
                     </p>
-                    <p className="text-7xl text-gray-500 mb-2 mt-4 ">
+                    <p className="mt-4 mb-2 text-gray-500 text-7xl ">
                         Just order{" "}
                         <span className="text-yellow-500"> NOW!</span>{" "}
                         {/* <img src="/yumlogo2.png" alt="" className="w-[50px]" /> */}
                     </p>
-                    <div className="mt-10 flex justify-center items-center space-x-10">
+                    <div className="flex items-center justify-center mt-10 space-x-10">
                         {/* <button
                             onClick={async () => {
                                 await fetchCurrentLocation();
                                 navigate("/restaurant");
                             }}
-                            className="primary-btn flex justify-center items-center hover:text-yellow-500"
+                            className="flex items-center justify-center primary-btn hover:text-yellow-500"
                         >
                             <LocateFixed className="w-6 h-6 mr-2" />
                             Location
@@ -52,7 +52,7 @@ export default function Home() {
                                 await addDemoCoordinate();
                                 navigate("/list");
                             }}
-                            className="primary-btn flex justify-center items-center hover:text-yellow-500"
+                            className="flex items-center justify-center primary-btn hover:text-yellow-500"
                         >
                             <LocateOffIcon className="w-6 h-6 mr-2 " />
                             Demo
@@ -75,8 +75,8 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="text-center text-gray-600 mt-24">
-                <div className="flex justify-center items-center">
+            <div className="mt-24 text-center text-gray-600">
+                <div className="flex items-center justify-center">
                     <img
                         className="w-12 h-12 rounded-full ring-2 ring-white"
                         src="/propic.jpg"
