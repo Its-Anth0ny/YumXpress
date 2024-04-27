@@ -3,10 +3,9 @@ import { Toaster } from "sonner";
 import AddButton from "./AddButton";
 
 const AccordianItems = ({ item, resData }) => {
-    console.log(item);
     return (
         <div className="max-w-[800px] w-full">
-            <div className="flex items-center justify-between gap-4 p-4 my-4 border-b-2 border-yellow-400 border-solid">
+            <div className="flex items-center justify-between w-full gap-4 p-4 my-4 border-b-2 border-yellow-400 border-solid">
                 <div className="flex flex-col w-8/12">
                     <span>{item?.name}</span>
                     <span className="font-mono text-sm font-medium text-gray-600">

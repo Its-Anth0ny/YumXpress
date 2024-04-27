@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import { addItem, removeItem } from "../redux/cartSlice";
 
 export default function AddButton({ itemData, resData }) {
-    console.log(itemData, resData);
+    // console.log(itemData, resData);
     const resId = resData.id;
     const itemPrice = itemData.defaultPrice
         ? itemData.defaultPrice / 100
