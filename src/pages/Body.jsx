@@ -6,13 +6,12 @@ import Shimmer from "../components/Shimmer";
 import { RES_LINK } from "../utils/constants";
 import useDebounce from "../utils/hooks/useDebounce";
 // import useOnlineStatus from "../utils/useOnlineStatus";
-// import useResData from "../utils/useResData";
 
 const Body = () => {
     const [resList, setResList] = useState([]);
     const [searchList, setSearchList] = useState([]);
     const [inputValue, setInputValue] = useState("");
-    const debounceValue = useDebounce(resList, 1000);
+    const debounceValue = useDebounce(inputValue, 500);
     const [initalRender, setInitialRender] = useState(true);
     // const onlineCheck = useOnlineStatus();
 
@@ -29,7 +28,6 @@ const Body = () => {
             const restaurantData =
                 jsonData?.data?.cards[1]?.card?.card?.gridElements
                     ?.infoWithStyle?.restaurants || [];
-            // Set both resList and searchList with the fetched data
             setResList(restaurantData);
             setSearchList(restaurantData);
         } catch (error) {
@@ -39,7 +37,6 @@ const Body = () => {
 
     useEffect(() => {
         if (!initalRender) {
-            // console.log("Debounce Value:");
             handleSearch();
         } else {
             setInitialRender(false);
@@ -55,7 +52,7 @@ const Body = () => {
         setSearchList(filteredList);
     };
 
-    if (searchList.length === 0) {
+    if (resList.length === 0) {
         return <Shimmer />;
     }
 
@@ -114,14 +111,20 @@ const Body = () => {
                 </div>
             </div>
             <div className="h-100% w-100% flex flex-wrap justify-center items-center">
-                {searchList.map((restaurant) => (
-                    <Link
-                        key={restaurant.info.id}
-                        to={"restaurant/" + restaurant.info.id}
-                    >
-                        <ResCard resData={restaurant} />
-                    </Link>
-                ))}
+                {searchList.length === 0 ? (
+                    <div className="object-cover w-full max-w-[500px]">
+                        <img src="noresult.jpg" alt="" />
+                    </div>
+                ) : (
+                    searchList.map((restaurant) => (
+                        <Link
+                            key={restaurant.info.id}
+                            to={"restaurant/" + restaurant.info.id}
+                        >
+                            <ResCard resData={restaurant} />
+                        </Link>
+                    ))
+                )}
             </div>
         </div>
     );

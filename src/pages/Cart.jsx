@@ -28,7 +28,7 @@ const Cart = () => {
                     Your Cart
                 </h2>
                 <div className="grid grid-cols-1 gap-4">
-                    <div className="flex gap-4">
+                    <div className="flex gap-4 pb-4 border-b-2 border-yellow-300 border-solid">
                         <div className="">
                             <img
                                 className="w-[100px] h-[100px] object-center object-cover rounded-md"
@@ -36,13 +36,13 @@ const Cart = () => {
                                 alt="Restaurant Image"
                             />
                         </div>
-                        <div>
-                            <h3 className="text-lg font-semibold">
+                        <div className="flex items-center">
+                            <h3 className="text-xl font-semibold">
                                 {resData.name}
                             </h3>
                         </div>
                     </div>
-                    <div>
+                    <div className="pb-4 border-b-2 border-yellow-300 border-solid">
                         <h4 className="mb-2 text-lg font-semibold text-center">
                             Bill Details
                         </h4>
@@ -63,8 +63,7 @@ const Cart = () => {
                             ))}
                         </div>
                     </div>
-                    <div className="my-4 border-t border-gray-200"></div>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between pb-2">
                         <div className="font-semibold">Item Total</div>
                         <div className="font-semibold">₹{price}</div>
                     </div>
@@ -79,7 +78,6 @@ const Cart = () => {
                                 </div>
                             </div>
                         )}
-                    <div className="my-4 border-t border-gray-200"></div>
                     <div className="flex justify-center">
                         <button className="px-6 py-3 font-semibold text-white bg-yellow-500 rounded-md">
                             Amount : ₹
