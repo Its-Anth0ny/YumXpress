@@ -30,7 +30,7 @@ const cartSlice = createSlice({
                     count: 1,
                     itemData: itemData,
                 });
-                state.totalPrice += itemPrice;
+                state.price += itemPrice;
             }
         },
         removeItem: (state, action) => {

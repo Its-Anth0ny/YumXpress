@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useMenuData from "../utils/hooks/useMenuData";
 import { ResMenuShimmer } from "../components/Shimmer";
@@ -6,6 +7,7 @@ import Accordian from "../components/Accordian";
 const ResMenu = () => {
     const resMenuId = useParams();
     const menuData = useMenuData(resMenuId);
+    const [openIndex, setOpenIndex] = useState(0);
     const {
         id,
         name,
@@ -14,6 +16,10 @@ const ResMenu = () => {
         cloudinaryImageId,
         cuisines,
     } = menuData?.data?.cards[2]?.card?.card?.info ?? {};
+
+    const handleIsOpen = (index) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
 
     if (menuData === null) return <ResMenuShimmer />;
 
@@ -41,18 +47,25 @@ const ResMenu = () => {
                 {categories.map((curr, index) => {
                     // console.log(curr);
                     return (
-                        <Accordian
-                            curr={curr}
+                        <div
                             key={index}
-                            resData={{
-                                id: id,
-                                name: name,
-                                costForTwoMessage: costForTwoMessage,
-                                avgRating: avgRating,
-                                cloudinaryImageId: cloudinaryImageId,
-                                cuisines: cuisines,
-                            }}
-                        />
+                            className="flex items-center justify-center w-full"
+                        >
+                            <Accordian
+                                curr={curr}
+                                index={index}
+                                resData={{
+                                    id: id,
+                                    name: name,
+                                    costForTwoMessage: costForTwoMessage,
+                                    avgRating: avgRating,
+                                    cloudinaryImageId: cloudinaryImageId,
+                                    cuisines: cuisines,
+                                }}
+                                isOpen={openIndex === index}
+                                handleIsOpen={handleIsOpen}
+                            />
+                        </div>
                     );
                 })}
             </div>

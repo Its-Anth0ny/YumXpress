@@ -7,7 +7,7 @@ const Cart = () => {
     const items = useSelector((store) => store.cart.items);
     const resData = useSelector((store) => store.cart.resData);
     const price = useSelector((store) => store.cart.price);
-    console.log(price);
+    // console.log(price);
     if (items.length === 0)
         return (
             <div className="flex flex-col items-center justify-center">

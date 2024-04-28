@@ -2,8 +2,7 @@ import AccordianItems from "./AccordianItems";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-const Accordian = ({ curr, key, resData }) => {
-    const [openIndex, setOpenIndex] = useState(null);
+const Accordian = ({ curr, index, resData, isOpen, handleIsOpen }) => {
     const { itemCards } = curr?.card?.card ?? {};
     // console.log(itemCards);
     return (
@@ -12,7 +11,7 @@ const Accordian = ({ curr, key, resData }) => {
                 <div
                     className="flex justify-between px-6 py-4 bg-yellow-200 cursor-pointer"
                     onClick={
-                        () => setOpenIndex(openIndex === key ? null : key) //logic = (setting null if already open, else set the key)
+                        () => handleIsOpen(index) //setOpenIndex(openIndex === index ? null : index) //logic = (setting null if already open, else set the index)
                     }
                 >
                     <span className="text-lg font-semibold">
@@ -24,11 +23,11 @@ const Accordian = ({ curr, key, resData }) => {
                     <span>
                         <ChevronDown
                             size={24}
-                            className={openIndex === key ? "rotate-180" : ""}
+                            className={isOpen ? "rotate-180" : ""}
                         />
                     </span>
                 </div>
-                {openIndex === key && (
+                {isOpen && (
                     <div className="px-6 py-4 bg-yellow-100">
                         {itemCards.map((item) => {
                             return (
