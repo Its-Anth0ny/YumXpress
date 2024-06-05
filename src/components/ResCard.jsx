@@ -5,40 +5,28 @@ const ResCard = (props) => {
     const { resData } = props;
 
     return (
-        <div className="w-[250px] h-[350px] rounded overflow-hidden shadow-lg my-5 mx-3 bg-[#FFF3CF] hover:shadow-2xl">
+        <div className="w-[250px] h-[310px] max-lg:w-[200px] max-lg:h-[275px] max-md:w-[170px] max-smx:w-[150px] max-smx:h-[200px] max-md:h-[210px] rounded overflow-hidden shadow-sm my-6 mx-4 max-md:mx-2 max-md:my-4 max-smx:mx-1 bg-white hover:shadow-2xl transition-shadow duration-300">
             <img
-                className="object-cover object-center w-full h-48"
+                className="object-cover object-center w-full h-48 max-lg:h-36 max-md:h-24 max-smx:h-22"
                 src={CDN_LINK + resData.info.cloudinaryImageId}
                 alt={resData.info.name}
             />
-            <div className="h-[158px] px-6 pt-4 pb-6 flex flex-col justify-between">
-                <div className="mb-2">
-                    <h4 className="text-lg font-semibold text-gray-800 h-[56px] overflow-hidden overflow-ellipsis">
+            <div className="flex flex-col justify-between px-4 pt-4 max-md:px-2 max-smx:pt-3">
+                <div className="mb-2 space-y-2 max-md:mb-0">
+                    <h4 className="text-xl font-semibold text-gray-800 truncate max-md:text-lg max-smx:text-[15px]">
                         {resData.info.name}
                     </h4>
-                    <p className="text-sm text-gray-600">
-                        {resData.info.cuisines.slice(0, 3).join(", ")}
+                    <p className="w-full h-6 text-sm text-gray-600 truncate max-smx:text-[12px]">
+                        {resData.info.cuisines.join(", ")}
                     </p>
                 </div>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="w-5 h-5 mr-1 text-yellow-600"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M10 1a1 1 0 00-.95.737l-3.19 11.22-9.343 3.34a1 1 0 00-.118 1.74l7.733 5.24-2.948 9.098a1 1 0 001.532 1.065l8.186-5.188 8.2 5.188a1 1 0 001.532-1.065l-2.947-9.098L20 12.737 10.95 1.737A1 1 0 0010 1zM2.78 16.823l2.72-8.4 7.6 2.712-7.68 2.688-.64 2.2zM7 4.602l2.573 9.031 6.04-4.15-7.574-5.112L7 4.602zm9.868 10.054l-7.653-4.847 1.16-3.22 6.493 7.58-7.587 5.004 2.847-8.785 1.46 4.268 4.727 3.007z"
-                                clipRule="evenodd"
-                            />
-                        </svg>
-                        <p className="text-sm text-yellow-600">
+                        <p className="text-sm text-yellow-600 max-smx:text-[12px]">
                             {resData.info.avgRating} ⭐
                         </p>
                     </div>
-                    <p className="flex items-center text-sm text-gray-600">
+                    <p className="flex items-center text-sm text-gray-600 max-smx:text-[12px]">
                         <Timer size={16} className="mr-1" />
                         {resData.info.sla.deliveryTime} mins
                     </p>
@@ -47,8 +35,6 @@ const ResCard = (props) => {
         </div>
     );
 };
-
-export default ResCard;
 
 // export const WithProLabel = (ResCard) => {
 //     return () => {
@@ -61,4 +47,4 @@ export default ResCard;
 //     };
 // };
 
-// export default ResCard;
+export default ResCard;

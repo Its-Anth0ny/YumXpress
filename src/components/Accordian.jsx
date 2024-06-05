@@ -1,6 +1,5 @@
 import AccordianItems from "./AccordianItems";
 import { ChevronDown } from "lucide-react";
-import { useState } from "react";
 
 const Accordian = ({ curr, index, resData, isOpen, handleIsOpen }) => {
     const { itemCards } = curr?.card?.card ?? {};

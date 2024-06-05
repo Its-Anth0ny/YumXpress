@@ -10,8 +10,12 @@ const Cart = () => {
     // console.log(price);
     if (items.length === 0)
         return (
-            <div className="flex flex-col items-center justify-center">
-                <img src="emptycart.png" alt="" className="w-[600px] mt-6" />
+            <div className="flex flex-col items-center justify-between min-h-[calc(100vh-143)] ">
+                <img
+                    src="emptycart.png"
+                    alt=""
+                    className="max-w-[600px] w-full mt-6"
+                />
                 <button
                     onClick={() => navigate("/list")}
                     className="px-4 py-2 mt-4 text-white bg-green-700 rounded-lg hover:bg-green-800"

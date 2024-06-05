@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { LocateFixed, LocateOffIcon } from "lucide-react";
 import { useLocation } from "../utils/hooks/useLocation";
 import { Link, useNavigate } from "react-router-dom";
+// import { Blurhash } from "react-blurhash";
 
 export default function Home() {
     const { fetchCurrentLocation, addDemoCoordinate } = useLocation();
@@ -21,22 +22,21 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="h-100% flex flex-col justify-between items-stretch">
-            <div className="w-full flex space-x-[30px]">
-                <div className="mx-24 text-center mt-14">
-                    <h1 className="font-bold text-gray-800 text-8xl">
-                        We <span className="text-yellow-500">Teleport</span>{" "}
+        <div className="grid row-span-12 min-h-[calc(100vh-143px)]">
+            <div className="grid md:pr-4 max-md:grid-rows-2 max-md:grid-cols-1 md:grid-cols-12 row-span-10 max-md:my-6 max-md:space-y-4">
+                <div className="flex flex-col items-center justify-center text-center max-md:mb-8 md:col-span-8 max-mdx:col-span-7">
+                    <span className="font-bold text-gray-800 text-8xl max-mdx:text-6xl max-xl:text-7xl max-md:text-4xl">
+                        We <span className="text-yellow-500">Teleport </span>
                         food.
-                    </h1>
-                    <p className="mt-8 mb-2 text-6xl text-gray-500">
+                    </span>
+                    <span className="mt-8 mb-2 text-gray-500 text-7xl max-mdx:text-5xl max-xl:text-6xl max-md:text-3xl max-md:mt-4">
                         Don't Ask HOW
-                    </p>
-                    <p className="mt-4 mb-2 text-gray-500 text-7xl ">
-                        Just order{" "}
-                        <span className="text-yellow-500"> NOW!</span>{" "}
-                        {/* <img src="/yumlogo2.png" alt="" className="w-[50px]" /> */}
-                    </p>
-                    <div className="flex items-center justify-center mt-10 space-x-10">
+                    </span>
+                    <span className="mt-4 mb-2 text-gray-500 text-7xl max-mdx:text-5xl max-xl:text-6xl max-md:text-3xl max-md:mt-2">
+                        Just order
+                        <span className="text-yellow-500"> NOW!</span>
+                    </span>
+                    <div className="flex items-center justify-center mt-10 space-x-10 max-md:mt-4 ">
                         {/* <button
                             onClick={async () => {
                                 await fetchCurrentLocation();
@@ -52,20 +52,20 @@ export default function Home() {
                                 await addDemoCoordinate();
                                 navigate("/list");
                             }}
-                            className="flex items-center justify-center primary-btn hover:text-yellow-500"
+                            className="flex items-center justify-center px-4 py-2 bg-yellow-100 border border-yellow-500 primary-btn hover:bg-yellow-200 rounded-xl"
                         >
                             <LocateOffIcon className="w-6 h-6 mr-2 " />
                             Demo
                         </button>
                     </div>
                 </div>
-                <div className="max-w-[300px] mt-5">
+                <div className="flex items-center justify-center md:col-span-4 max-mdx:col-span-5 ">
                     {[1, 2, 3, 4].map((index) => (
                         <img
                             key={index}
                             src={`/dash${index}.jpg`}
                             alt={`Image ${index}`}
-                            className={`w-[400px] absolute transition-opacity ${
+                            className={`max-h-[400px] max-mdx:max-w-[300px] max-xl:max-w-[330px] absolute transition-opacity max-md:max-h-[250px] ${
                                 rotationIndex === index - 1
                                     ? "opacity-100"
                                     : "opacity-0"
@@ -74,11 +74,10 @@ export default function Home() {
                     ))}
                 </div>
             </div>
-
-            <div className="mt-24 text-center text-gray-600">
+            <div className="row-span-2 text-center max-md:my-6">
                 <div className="flex items-center justify-center">
                     <img
-                        className="w-12 h-12 rounded-full ring-2 ring-white"
+                        className="w-12 h-12 rounded-full max-md:w-10 max-md:h-10"
                         src="/propic.jpg"
                         alt=""
                     />

@@ -1,0 +1,51 @@
+/* Shimmer.css */
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.shimmer-card {
+    position: relative;
+    overflow: hidden;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 1200px 100%;
+    animation: shimmer 1.2s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1200px 0;
+    }
+    100% {
+        background-position: 1200px 0;
+    }
+}
+
+.shimmer-image,
+.shimmer-content .shimmer-title,
+.shimmer-content .shimmer-text,
+.shimmer-content .shimmer-rating,
+.shimmer-content .shimmer-time {
+    background: #dddddd;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 1200px 100%;
+    animation: shimmer 1.2s linear infinite;
+}
+
+.shimmer-image {
+    width: 100%;
+}
+
+.shimmer-title,
+.shimmer-text {
+    width: 80%;
+    margin-bottom: 8px;
+}
+
+.shimmer-rating,
+.shimmer-time {
+    width: 30%;
+}

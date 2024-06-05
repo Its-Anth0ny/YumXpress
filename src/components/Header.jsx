@@ -7,16 +7,16 @@ const Header = () => {
     // const [inOutBtn, setInOutBtn] = useState("Login");
     // const checkOnline = useOnlineStatus();
     return (
-        <div className="flex flex-col justify-center items-center pt-[15px]">
-            <div className="w-[255px]">
+        <div className="flex flex-col justify-center items-center mt-[15px] max-md:mt-[10px]">
+            <div className="w-[255px] max-md:w-[225px]">
                 {/* logo color = #eab308 */}
                 <img className="logo" src={`/Logo3.png`} />
             </div>
-            <div className="h-[1.5px] max-w-[800px] mt-[15px]">
-                <div className="h-full w-[800px] bg-slate-200 rounded-md"></div>
+            <div className="h-[1.5px] max-w-[800px] w-full max-mdx:max-w-[650px] max-md:max-w-full mt-[15px] max-md:mt-[12px]">
+                <div className="h-full rounded-md bg-slate-200"></div>
             </div>
-            <div className="max-w-[1110px] max-h-[61px] flex justify-center items-center mt-[10px]">
-                <ul className="flex justify-center space-x-4">
+            <div className="max-w-[1110px] max-h-[61px] flex justify-center items-center mt-[10px] max-md:mt-[5px]">
+                <ul className="flex justify-center space-x-4 font-medium text-slate-700 max-md:text-sm">
                     {/* <li className="onlineStatus">
                         Online Status : {checkOnline ? "🟢" : "🔴"}
                     </li> */}
@@ -24,31 +24,31 @@ const Header = () => {
 
                     <Link
                         to="/"
-                        className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                        className="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900"
                     >
                         Home
                     </Link>
                     <Link
                         to="/recipes"
-                        className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                        className="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900"
                     >
                         Recipes
                     </Link>
                     <Link
                         to="/cart"
-                        className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                        className="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900"
                     >
                         Cart
                     </Link>
                     {/* <Link
                         to="/contact"
-                        className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                        className="px-3 py-2 font-medium rounded-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                     >
                         Contact
                     </Link> */}
                     <Link
                         to="/about"
-                        className="font-medium px-3 py-2 text-slate-700 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                        className="px-3 py-2 font-medium rounded-lg text-slate-700 hover:bg-slate-100 hover:text-slate-900"
                     >
                         About
                     </Link>
@@ -68,8 +68,8 @@ const Header = () => {
                     </button> */}
                 </ul>
             </div>
-            <div className="h-[1.5px] max-w-[800px] mt-[10px]">
-                <div className="h-full w-[800px] bg-slate-200 rounded-md"></div>
+            <div className="h-[1.5px] max-w-[800px] w-full max-mdx:max-w-[650px] max-md:max-w-full mt-[15px] max-md:mt-[5px]">
+                <div className="h-full rounded-md bg-slate-200"></div>
             </div>
         </div>
     );

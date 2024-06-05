@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Search } from "lucide-react";
 import ResCard from "../components/ResCard";
 import Shimmer from "../components/Shimmer";
-import { RES_LINK } from "../utils/constants";
+import { RES_LINK, MOB_RES_LINK } from "../utils/constants";
 import useDebounce from "../utils/hooks/useDebounce";
+import { isMobile } from "react-device-detect";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
@@ -13,6 +13,7 @@ const Body = () => {
     const [inputValue, setInputValue] = useState("");
     const debounceValue = useDebounce(inputValue, 500);
     const [initalRender, setInitialRender] = useState(true);
+    const [swiggyActive, setSwiggyActive] = useState(true);
     // const onlineCheck = useOnlineStatus();
 
     useEffect(() => {
@@ -21,13 +22,45 @@ const Body = () => {
 
     async function fetchData() {
         try {
+            const RES_URL = isMobile ? MOB_RES_LINK : RES_LINK;
             const data = await fetch(
-                "https://thingproxy-760k.onrender.com/fetch/" + RES_LINK
+                "https://thingproxy-760k.onrender.com/fetch/" + RES_URL
             );
             const jsonData = await data.json();
-            const restaurantData =
-                jsonData?.data?.cards[1]?.card?.card?.gridElements
-                    ?.infoWithStyle?.restaurants || [];
+
+            // console.log(jsonData);
+
+            const cards = isMobile
+                ? jsonData.data.success.cards
+                : jsonData.data.cards;
+
+            const locUnavailable = isMobile
+                ? cards.find(
+                      (card) =>
+                          card.gridWidget &&
+                          card.gridWidget.gridElements &&
+                          card.gridWidget.gridElements.infoWithStyle[
+                              "@type"
+                          ] ===
+                              "type.googleapis.com/swiggy.seo.widgets.v1.SwiggyNotPresent"
+                  )
+                : cards.find(
+                      (card) =>
+                          card.card &&
+                          card.card.card &&
+                          card.card.card["@type"] ===
+                              "type.googleapis.com/swiggy.seo.widgets.v1.SwiggyNotPresent"
+                  );
+
+            if (locUnavailable !== undefined) {
+                setSwiggyActive(false);
+                return;
+            }
+            const restaurantData = isMobile
+                ? jsonData?.data?.success?.cards[1]?.gridWidget?.gridElements
+                      ?.infoWithStyle?.restaurants || []
+                : jsonData?.data?.cards[1]?.card?.card?.gridElements
+                      ?.infoWithStyle?.restaurants || [];
             setResList(restaurantData);
             setSearchList(restaurantData);
         } catch (error) {
@@ -62,24 +95,24 @@ const Body = () => {
 
     return (
         <div className="w-full h-full">
-            <div className="flex justify-between py-8 pl-[130px] pr-[110px]">
-                <div className="flex items-center justify-center space-x-2">
-                    <input
-                        type="text"
-                        placeholder="Search for Restaurants..."
-                        className="h-[40px] max-w-[250px] bg-gray-100 border-2 border-solid border-grey-300 rounded-3xl pl-4 pr-6"
-                        value={inputValue}
-                        onChange={(e) => {
-                            setInputValue(e.target.value);
-                        }}
-                    />
+            <div className="flex items-center justify-between py-8 pl-[110px] pr-[110px] max-lg:pl-[50px] max-lg:pr-[50px] max-md:flex-col max-md:space-y-4 max-md:px-4 max-md:pt-4 max-md:pb-0">
+                {/* <div className="flex items-center w-full space-x-2 justify-left">
                     <button className="" onClick={() => handleSearch()}>
                         <Search className="size-7 width-[4px]" />
                     </button>
-                </div>
-                <div className="flex items-center justify-center space-x-4">
+                </div> */}
+                <input
+                    type="text"
+                    placeholder="Search for Restaurants..."
+                    className="h-[40px] max-w-[320px] w-full bg-gray-100 border-2 border-solid border-grey-300 rounded-3xl pl-4 max-md:text-sm max-md:h-[35px]"
+                    value={inputValue}
+                    onChange={(e) => {
+                        setInputValue(e.target.value);
+                    }}
+                />
+                <div className="flex items-center justify-center space-x-4 max-md:space-x-5">
                     <button
-                        className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-[8px]"
+                        className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-2 max-md:text-[12px] max-md:px-2 max-md:py-1"
                         onClick={() => {
                             setSearchList(resList);
                         }}
@@ -87,7 +120,7 @@ const Body = () => {
                         Reset
                     </button>
                     <button
-                        className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-[8px]"
+                        className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-2 max-md:text-[12px] max-md:px-2 max-md:py-1"
                         onClick={() => {
                             const newresObj = resList.filter(
                                 (res) => res?.info?.avgRating >= 4.5
@@ -98,7 +131,7 @@ const Body = () => {
                         Above 4.5⭐
                     </button>
                     <button
-                        className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-[8px]"
+                        className="text-sm shadow-sm bg-gray-200 hover:bg-gray-300 rounded-md p-2 max-md:text-[12px] max-md:px-2 max-md:py-1"
                         onClick={() => {
                             const newresObj = resList.filter(
                                 (res) => res?.info?.sla?.deliveryTime <= 45
