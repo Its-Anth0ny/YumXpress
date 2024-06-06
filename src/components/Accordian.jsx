@@ -3,40 +3,37 @@ import { ChevronDown } from "lucide-react";
 
 const Accordian = ({ curr, index, resData, isOpen, handleIsOpen }) => {
     const { itemCards } = curr?.card?.card ?? {};
-    // console.log(itemCards);
     return (
-        <div className="w-full max-w-[600px] my-4 overflow-hidden bg-white rounded-lg shadow-md hover:shadow-xl">
+        <div className="w-full max-w-[600px] my-4 overflow-hidden rounded-lg shadow-md hover:shadow-xl">
             <div>
                 <div
-                    className="flex justify-between px-6 py-4 bg-yellow-200 cursor-pointer"
-                    onClick={
-                        () => handleIsOpen(index) //setOpenIndex(openIndex === index ? null : index) //logic = (setting null if already open, else set the index)
-                    }
+                    className="flex justify-between px-6 py-4 overflow-hidden bg-yellow-200 cursor-pointer max-md:px-4 max-md:py-3"
+                    onClick={() => handleIsOpen(index)}
                 >
-                    <span className="text-lg font-semibold">
+                    <span className="w-full text-lg font-semibold truncate max-md:text-base">
                         {curr?.card?.card?.title +
                             " (" +
-                            curr?.card?.card?.itemCards?.length +
+                            itemCards?.length +
                             ")"}
                     </span>
                     <span>
                         <ChevronDown
                             size={24}
-                            className={isOpen ? "rotate-180" : ""}
+                            className={`transition-transform duration-300 ${
+                                isOpen ? "rotate-180" : ""
+                            }`}
                         />
                     </span>
                 </div>
                 {isOpen && (
-                    <div className="px-6 py-4 bg-yellow-100">
-                        {itemCards.map((item) => {
-                            return (
-                                <AccordianItems
-                                    key={item?.card?.info?.id}
-                                    item={item?.card?.info}
-                                    resData={resData}
-                                />
-                            );
-                        })}
+                    <div className="px-6 py-4 bg-yellow-100 max-sm:px-2 max-sm:py-1">
+                        {itemCards.map((item) => (
+                            <AccordianItems
+                                key={item?.card?.info?.id}
+                                item={item?.card?.info}
+                                resData={resData}
+                            />
+                        ))}
                     </div>
                 )}
             </div>

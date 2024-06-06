@@ -52,9 +52,9 @@ export default function Home() {
                                 await addDemoCoordinate();
                                 navigate("/list");
                             }}
-                            className="flex items-center justify-center px-4 py-2 bg-yellow-100 border border-yellow-500 primary-btn hover:bg-yellow-200 rounded-xl"
+                            className="flex items-center justify-center px-4 py-2 text-gray-700 bg-yellow-200 border border-yellow-600 rounded-lg hover:bg-yellow-300 hover:text-black max-md:text-sm max-md:px-3"
                         >
-                            <LocateOffIcon className="w-6 h-6 mr-2 " />
+                            <LocateOffIcon className="w-6 h-6 mr-2 max-md:w-4 max-md:h-4" />
                             Demo
                         </button>
                     </div>

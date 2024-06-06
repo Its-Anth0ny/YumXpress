@@ -24,7 +24,7 @@ const Shimmer = () => {
                             <div className="h-6 mb-2 bg-gray-300 shimmer-title max-md:mb-1"></div>
                             <div className="h-4 mb-2 bg-gray-300 shimmer-text max-md:mb-1"></div>
                             <div className="flex items-center justify-between shimmer-footer">
-                                <div className="w-12 h-4 bg-gray-300 shimmer-rating"></div>
+                                <div className="w-12 h-4 bg-gray-300 shimmer-time"></div>
                                 <div className="w-16 h-4 bg-gray-300 shimmer-time"></div>
                             </div>
                         </div>
@@ -37,23 +37,34 @@ const Shimmer = () => {
 
 export const AboutShimmer = () => {
     return (
-        <div className="flex flex-col justify-center p-4">
-            <div className="mt-6 h-[250px] w-full rounded-lg bg-gray-100"></div>
-            <div className="mt-6 h-[350px] w-full rounded-lg bg-gray-100"></div>
+        <div className="flex flex-col items-center justify-center p-4">
+            <div className="shimmer-card mt-6 h-[250px] w-full rounded-lg bg-gray-100 max-sm:h-[420px] px-8 py-10 flex flex-col items-center justify-center">
+                <div className="mb-4 bg-gray-200 rounded-full shimmer-time w-28 h-28"></div>
+                <div className="shimmer-time w-full h-[34px] mb-5 bg-gray-200 sm:w-3/4"></div>
+                <div className="flex-grow w-full h-40 bg-gray-200 shimmer-time sm:hidden"></div>
+            </div>
+            <div className="shimmer-card mt-6 h-[400px] w-full rounded-lg bg-gray-100 max-sm:h-[420px] px-8 py-10 flex flex-col items-center justify-center">
+                <div className="shimmer-time w-full h-[34px] mb-5 bg-gray-200"></div>
+                <div className="flex-grow w-full h-40 bg-gray-200 shimmer-time"></div>
+            </div>
         </div>
     );
 };
 
 export const ResMenuShimmer = () => {
+    const shimmerItems = Array(8).fill(0);
+
     return (
-        <div className="flex flex-col items-center justify-center w-full space-y-10">
-            <div className="h-[100px] w-full max-w-md mt-8 bg-gray-100"></div>
-            <div className="w-full h-16 max-w-md bg-gray-100 rounded-lg"></div>
-            <div className="w-full h-16 max-w-md bg-gray-100 rounded-lg"></div>
-            <div className="w-full h-16 max-w-md bg-gray-100 rounded-lg"></div>
-            <div className="w-full h-16 max-w-md bg-gray-100 rounded-lg"></div>
-            <div className="w-full h-16 max-w-md bg-gray-100 rounded-lg"></div>
-            <div className="w-full h-16 max-w-md bg-gray-100 rounded-lg"></div>
+        <div className="w-full max-w-[600px] p-4 flex flex-col items-center justify-center">
+            <div className="shimmer-card h-[111px] w-[400px] max-sm:w-[275px] mb-10 rounded-lg max-sm:mb-6"></div>
+            {shimmerItems.map((_, index) => (
+                <div
+                    key={index}
+                    className="shimmer-card h-[60px] max-sm:h-[48px] max-sm:my-3 my-4 rounded-lg min-w-[370px] flex justify-start py-4 px-2 max-w-[500px] w-full "
+                >
+                    <div className="w-3/5 h-full bg-gray-200 rounded-md shimmer-time"></div>
+                </div>
+            ))}
         </div>
     );
 };

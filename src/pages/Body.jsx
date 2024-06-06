@@ -5,6 +5,7 @@ import Shimmer from "../components/Shimmer";
 import { RES_LINK, MOB_RES_LINK } from "../utils/constants";
 import useDebounce from "../utils/hooks/useDebounce";
 import { isMobile } from "react-device-detect";
+import ErrorPage from "../utils/ErrorPage";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
@@ -14,6 +15,8 @@ const Body = () => {
     const debounceValue = useDebounce(inputValue, 500);
     const [initalRender, setInitialRender] = useState(true);
     const [swiggyActive, setSwiggyActive] = useState(true);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
     // const onlineCheck = useOnlineStatus();
 
     useEffect(() => {
@@ -23,10 +26,13 @@ const Body = () => {
     async function fetchData() {
         try {
             const RES_URL = isMobile ? MOB_RES_LINK : RES_LINK;
-            const data = await fetch(
+            const response = await fetch(
                 "https://thingproxy-760k.onrender.com/fetch/" + RES_URL
             );
-            const jsonData = await data.json();
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const jsonData = await response.json();
 
             // console.log(jsonData);
 
@@ -65,6 +71,9 @@ const Body = () => {
             setSearchList(restaurantData);
         } catch (error) {
             console.error("Error fetching data:", error);
+            setError(error.message);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -85,8 +94,16 @@ const Body = () => {
         setSearchList(filteredList);
     };
 
-    if (resList.length === 0) {
+    if (loading) {
         return <Shimmer />;
+    }
+
+    if (error) {
+        return <ErrorPage message={error} />;
+    }
+
+    if (!swiggyActive) {
+        return <ErrorPage message="Swiggy is not active in your location" />;
     }
 
     // if (onlineCheck === false) {

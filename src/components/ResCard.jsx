@@ -36,6 +36,8 @@ const ResCard = (props) => {
     );
 };
 
+export default ResCard;
+
 // export const WithProLabel = (ResCard) => {
 //     return () => {
 //         return (
@@ -46,5 +48,3 @@ const ResCard = (props) => {
 //         );
 //     };
 // };
-
-export default ResCard;
