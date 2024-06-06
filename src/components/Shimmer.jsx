@@ -56,11 +56,11 @@ export const ResMenuShimmer = () => {
 
     return (
         <div className="w-full max-w-[600px] p-4 flex flex-col items-center justify-center">
-            <div className="shimmer-card h-[111px] w-[400px] max-sm:w-[275px] mb-10 rounded-lg max-sm:mb-6"></div>
+            <div className="shimmer-card h-[110px] w-[400px] max-sm:w-[275px] mb-10 rounded-xl max-sm:mb-6 mt-2"></div>
             {shimmerItems.map((_, index) => (
                 <div
                     key={index}
-                    className="shimmer-card h-[60px] max-sm:h-[48px] max-sm:my-3 my-4 rounded-lg min-w-[370px] flex justify-start py-4 px-2 max-w-[500px] w-full "
+                    className="shimmer-card h-[60px] max-sm:h-[48px] max-sm:my-3 my-4 rounded-lg min-w-[280px] flex justify-start py-4 px-2 max-w-[500px] w-full "
                 >
                     <div className="w-3/5 h-full bg-gray-200 rounded-md shimmer-time"></div>
                 </div>
