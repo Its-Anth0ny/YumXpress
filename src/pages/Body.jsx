@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ResCard from "../components/ResCard";
 import Shimmer from "../components/Shimmer";
-import { RES_LINK, MOB_RES_LINK } from "../utils/constants";
+import { RES_LINK, MOB_RES_LINK, PROXY_URL } from "../utils/constants";
 import useDebounce from "../utils/hooks/useDebounce";
 import { isMobile } from "react-device-detect";
 import ErrorPage from "../utils/ErrorPage";
@@ -26,9 +26,7 @@ const Body = () => {
     async function fetchData() {
         try {
             const RES_URL = isMobile ? MOB_RES_LINK : RES_LINK;
-            const response = await fetch(
-                "https://thingproxy-760k.onrender.com/fetch/" + RES_URL
-            );
+            const response = await fetch(PROXY_URL + RES_URL);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

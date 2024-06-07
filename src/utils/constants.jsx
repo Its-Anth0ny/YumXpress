@@ -9,3 +9,5 @@ export const MOB_RES_LINK =
 
 export const MENU_API =
     "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.95250&lng=75.71050&restaurantId=";
+
+export const PROXY_URL = "https://thingproxy-760k.onrender.com/fetch/";

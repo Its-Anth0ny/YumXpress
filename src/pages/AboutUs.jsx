@@ -38,9 +38,9 @@ const App = () => {
                         <div className="px-8 py-10">
                             <div className="flex flex-col items-center justify-center mb-6 md:flex-row">
                                 <img
-                                    className="mb-4 border-4 border-yellow-500 rounded-full shadow-md w-28 h-28 md:mr-6 md:mb-0"
-                                    src={avatar_url}
-                                    alt={name}
+                                    className="mb-4 border-4 border-yellow-400 rounded-full shadow-md w-28 h-28 md:mr-6 md:mb-0"
+                                    src="propic.jpg"
+                                    alt="Shubhankar Bhatt"
                                 />
                                 <div className="md:ml-4">
                                     <h1 className="mb-1 text-2xl font-semibold text-yellow-500">

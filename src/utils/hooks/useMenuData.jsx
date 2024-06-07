@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { MENU_API } from "../constants";
+import { MENU_API, PROXY_URL } from "../constants";
 
 const useMenuData = (resMenuId) => {
-    const url = `https://thingproxy-760k.onrender.com/fetch/${MENU_API}${resMenuId.id}`;
+    const url = `${PROXY_URL}${MENU_API}${resMenuId.id}`;
     const [menuData, setMenuData] = useState(null);
     const [res, setRes] = useState(null);
     const [error, setError] = useState(null);
