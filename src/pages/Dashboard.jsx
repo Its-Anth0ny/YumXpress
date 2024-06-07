@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { LocateFixed, LocateOffIcon } from "lucide-react";
 import { useLocation } from "../utils/hooks/useLocation";
 import { Link, useNavigate } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
 // import { Blurhash } from "react-blurhash";
 
 export default function Home() {
@@ -33,8 +34,13 @@ export default function Home() {
                         Don't Ask HOW
                     </span>
                     <span className="mt-4 mb-2 text-gray-500 text-7xl max-mdx:text-5xl max-xl:text-6xl max-md:text-3xl max-md:mt-2">
-                        Just order
-                        <span className="text-yellow-500"> NOW!</span>
+                        <TypeAnimation
+                            sequence={[" Order Now!", 1000, ""]}
+                            speed={10}
+                            cursor={true}
+                            repeat={Infinity}
+                            className="text-yellow-500 whitespace-break-spaces"
+                        />
                     </span>
                     <div className="flex items-center justify-center mt-10 space-x-10 max-md:mt-4 ">
                         {/* <button

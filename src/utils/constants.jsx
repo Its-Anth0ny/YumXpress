@@ -11,3 +11,5 @@ export const MENU_API =
     "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.95250&lng=75.71050&restaurantId=";
 
 export const PROXY_URL = "https://thingproxy-760k.onrender.com/fetch/";
+
+export const EMAIL_API_KEY = "b86e5981-302e-4079-8f13-70f93510c21f";

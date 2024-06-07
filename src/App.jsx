@@ -11,6 +11,7 @@ import ResMenu from "./pages/ResMenu";
 import Cart from "./pages/Cart";
 import appStore from "./redux/appStore";
 import { Provider } from "react-redux";
+import ContactUs from "./pages/ContactUs";
 
 // const AboutUs = lazy(() => import("./components/AboutUs"));
 
@@ -32,7 +33,7 @@ const App = () => {
                     <Route path="/recipes" element={<Recipes />} />
                     <Route path="/about" element={<AboutUs />} />
                     <Route path="/cart" element={<Cart />} />
-                    {/* <Route path="/contact" element={<ContactUs />} /> */}
+                    <Route path="/contact" element={<ContactUs />} />
                     <Route path="/list/restaurant/:id" element={<ResMenu />} />
                 </Route>
             </Routes>
