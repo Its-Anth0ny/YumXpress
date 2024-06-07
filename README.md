@@ -2,7 +2,7 @@
 
 Welcome to **YumExpress**, your go-to online food delivery platform! Dive into a world of culinary delights and get your favorite meals delivered straight to your doorsteps, all at the click of a button.
 
-##🌟 Show Your Support
+## 🌟 Show Your Support
 If you like this project, please consider giving it a ⭐ on GitHub! Your support is greatly appreciated. Feel free to fork the repository and contribute to making it even better!
 
 ## 🎬 Demo
