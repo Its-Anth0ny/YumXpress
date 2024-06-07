@@ -6,8 +6,8 @@ Welcome to **YumExpress**, your go-to online food delivery platform! Dive into a
 
 Watch our [video demo](#) to see YumExpress in action!
 
-<a href="YOUR_VIDEO_LINK_HERE">
-  <img src="https://www.youtube.com/watch?v=1Q-z4rj4MMU&list=PL77ysEgLe1bXbJrqBnI79ZMTVUdtUcx8F" alt="YumExpress Video Demo" width="600">
+<a href="https://www.youtube.com/watch?v=1Q-z4rj4MMU&list=PL77ysEgLe1bXbJrqBnI79ZMTVUdtUcx8F">
+  <img src="https://img.youtube.com/vi/1Q-z4rj4MMU/0.jpg" alt="YumExpress Video Demo" width="600">
 </a>
 
 ## 🚀 Features
