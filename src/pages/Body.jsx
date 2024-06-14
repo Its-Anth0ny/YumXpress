@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ResCard from "../components/ResCard";
 import Shimmer from "../components/Shimmer";
-import { RES_LINK, MOB_RES_LINK, PROXY_URL } from "../utils/constants";
+import { PROXY_URL } from "../utils/constants";
 import useDebounce from "../utils/hooks/useDebounce";
 import { isMobile } from "react-device-detect";
 import ErrorPage from "../utils/ErrorPage";
+import { useLocation } from "../utils/hooks/useLocation";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
@@ -17,15 +18,15 @@ const Body = () => {
     const [swiggyActive, setSwiggyActive] = useState(true);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { currentLocation } = useLocation();
+    const navigate = useNavigate();
     // const onlineCheck = useOnlineStatus();
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    async function fetchData() {
+    const fetchData = async (currentLocation) => {
         try {
-            const RES_URL = isMobile ? MOB_RES_LINK : RES_LINK;
+            const RES_URL = isMobile
+                ? `https://www.swiggy.com/mapi/homepage/getCards?lat=${currentLocation.latitude}&lng=${currentLocation.longitude}`
+                : `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${currentLocation.latitude}&lng=${currentLocation.longitude}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
             const response = await fetch(PROXY_URL + RES_URL);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -73,15 +74,7 @@ const Body = () => {
         } finally {
             setLoading(false);
         }
-    }
-
-    useEffect(() => {
-        if (!initalRender) {
-            handleSearch();
-        } else {
-            setInitialRender(false);
-        }
-    }, [debounceValue]);
+    };
 
     const handleSearch = () => {
         const filteredList = resList.filter((restaurant) => {
@@ -91,6 +84,22 @@ const Body = () => {
         });
         setSearchList(filteredList);
     };
+
+    useEffect(() => {
+        if (currentLocation === null) {
+            navigate("/");
+        } else {
+            fetchData(currentLocation);
+        }
+    }, [currentLocation, navigate]);
+
+    useEffect(() => {
+        if (!initalRender) {
+            handleSearch();
+        } else {
+            setInitialRender(false);
+        }
+    }, [debounceValue]);
 
     if (loading) {
         return <Shimmer />;

@@ -1,16 +1,11 @@
-// import { useState } from "react";
-// import logo from "../utils/yumxpress-high-resolution-logo-transparent.png";
-import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
     // const [inOutBtn, setInOutBtn] = useState("Login");
     // const checkOnline = useOnlineStatus();
-    const curr = useParams();
-    useEffect(() => {
-        console.log(curr);
-    }, [curr]);
+    const curr = useLocation();
+    const path = curr.pathname.split("/")[1];
 
     return (
         <div className="flex flex-col justify-center items-center mt-[15px] max-md:mt-[10px]">
@@ -30,7 +25,9 @@ const Header = () => {
 
                     <Link
                         to="/"
-                        className="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                        className={`px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900 ${
+                            path === "" || path === "list" ? "font-bold" : ""
+                        }`}
                     >
                         Home
                     </Link>
@@ -42,19 +39,25 @@ const Header = () => {
                     </Link> */}
                     <Link
                         to="/cart"
-                        className="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                        className={`px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900 ${
+                            path === "cart" ? "font-bold" : ""
+                        }`}
                     >
                         Cart
                     </Link>
                     <Link
                         to="/contact"
-                        className="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                        className={`px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900 ${
+                            path === "contact" ? "font-bold" : ""
+                        }`}
                     >
                         Contact
                     </Link>
                     <Link
                         to="/about"
-                        className="px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900"
+                        className={`px-3 py-2 rounded-lg hover:bg-slate-100 hover:text-slate-900 ${
+                            path === "about" ? "font-bold" : ""
+                        }`}
                     >
                         About
                     </Link>

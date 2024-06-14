@@ -43,16 +43,16 @@ export default function Home() {
                         />
                     </span>
                     <div className="flex items-center justify-center mt-10 space-x-10 max-md:mt-4 ">
-                        {/* <button
+                        <button
                             onClick={async () => {
                                 await fetchCurrentLocation();
-                                navigate("/restaurant");
+                                navigate("/list");
                             }}
-                            className="flex items-center justify-center primary-btn hover:text-yellow-500"
+                            className="flex items-center justify-center px-4 py-2 text-gray-700 border rounded-lg border-lime-600 bg-lime-200 hover:bg-lime-300 hover:text-black max-md:text-sm max-md:px-3"
                         >
-                            <LocateFixed className="w-6 h-6 mr-2" />
+                            <LocateFixed className="w-6 h-6 mr-2 max-md:w-4 max-md:h-4" />
                             Location
-                        </button> */}
+                        </button>
                         <button
                             onClick={async () => {
                                 await addDemoCoordinate();
