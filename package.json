@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.17.0",
     "@reduxjs/toolkit": "^2.2.3",
     "blurhash": "^2.0.5",
     "clsx": "^2.1.0",
@@ -23,7 +24,8 @@
     "react-router-dom": "^6.22.2",
     "react-type-animation": "^3.2.0",
     "sonner": "^1.4.41",
-    "tailwind-merge": "^2.2.2"
+    "tailwind-merge": "^2.2.2",
+    "tailwind-scrollbar-hide": "^1.1.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.56",

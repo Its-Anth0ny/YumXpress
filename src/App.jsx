@@ -4,40 +4,46 @@ import { Route, Routes, Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Dashboard from "./pages/Dashboard";
 import Body from "./pages/Body";
-import Recipes from "./pages/Recipes";
+import FoodAI from "./pages/FoodAI";
 import AboutUs from "./pages/AboutUs";
 // import ContactUs from "./pages/ContactUs";
 import ResMenu from "./pages/ResMenu";
 import Cart from "./pages/Cart";
-import appStore from "./redux/appStore";
-import { Provider } from "react-redux";
+// import appStore from "./redux/appStore";
+import { useSelector } from "react-redux";
 import ContactUs from "./pages/ContactUs";
 
 // const AboutUs = lazy(() => import("./components/AboutUs"));
 
 const App = () => {
+    const isOpen = useSelector((state) => state.foodai.isOpen);
     return (
-        <Provider store={appStore}>
+        <div className={`relative ${isOpen ? "overflow-hidden h-screen" : ""}`}>
             <Routes>
                 <Route
                     path="/"
                     element={
-                        <div>
+                        <div
+                            className={`relative ${
+                                isOpen ? "fixed inset-0" : ""
+                            }`}
+                        >
                             <Header />
                             <Outlet />
+                            {isOpen && <FoodAI />}
                         </div>
                     }
                 >
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/list" element={<Body />} />
-                    <Route path="/recipes" element={<Recipes />} />
+                    {/* <Route path="/foodai" element={<FoodAI />} /> */}
                     <Route path="/about" element={<AboutUs />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/contact" element={<ContactUs />} />
                     <Route path="/list/restaurant/:id" element={<ResMenu />} />
                 </Route>
             </Routes>
-        </Provider>
+        </div>
     );
 };
 

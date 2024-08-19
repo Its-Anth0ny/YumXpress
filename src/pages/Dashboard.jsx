@@ -23,7 +23,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="grid row-span-12 min-h-[calc(100vh-143px)]">
+        <div className="grid row-span-12 min-h-[calc(100vh-148px)]">
             <div className="grid md:pr-4 max-md:grid-rows-2 max-md:grid-cols-1 md:grid-cols-12 row-span-10 max-md:my-6 max-md:space-y-4">
                 <div className="flex flex-col items-center justify-center text-center max-md:mb-8 md:col-span-8 max-mdx:col-span-7">
                     <span className="font-bold text-gray-800 text-8xl max-mdx:text-6xl max-xl:text-7xl max-md:text-4xl">
