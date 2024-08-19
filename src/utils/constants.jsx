@@ -12,4 +12,8 @@ export const MENU_API =
 
 export const PROXY_URL = "https://thingproxy-760k.onrender.com/fetch/";
 
-export const EMAIL_API_KEY = "b86e5981-302e-4079-8f13-70f93510c21f";
+export const EMAIL_API_KEY = import.meta.env.VITE_EMAIL_API_KEY;
+
+export const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+
+// logo color = #eab308
