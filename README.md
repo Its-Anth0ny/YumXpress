@@ -24,7 +24,15 @@ Watch our [video demo](https://www.youtube.com/watch?v=1Q-z4rj4MMU&list=PL77ysEg
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/8c9fa831-3b5a-4916-ac92-c0c822b63679" alt="Home Page" width="700">
+  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/55b5a3f9-c524-4057-9632-2c54f68da1c7" alt="Home Page" width="700">
+</p>
+
+<p align="center">
+  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/af5867a4-9270-4b1c-82ff-8821c3c86bd6" alt="Home Page" width="700">
+</p>
+
+<p align="center">
+  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/a90ac890-6e10-45fb-b67b-d73eb9c33ef8" alt="Home Page" width="700">
 </p>
 
 <p align="center">
