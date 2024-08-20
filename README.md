@@ -36,19 +36,23 @@ Watch our [video demo](https://www.youtube.com/watch?v=1Q-z4rj4MMU&list=PL77ysEg
 </p>
 
 <p align="center">
-  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/f94561bc-88ab-4409-944d-346d2398da51" alt="Restaurant List" width="700">
+  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/b7620dd3-e4ff-4681-aa50-905225838fcd" alt="Restaurant List" width="700">
 </p>
 
 <p align="center">
-  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/ef727398-6b7f-470f-bc53-c28b38cad6fa" alt="Menu Page" width="700">
+  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/c8bdb703-0644-46d8-b186-e3130aae18bd" alt="Menu Page" width="700">
 </p>
 
 <p align="center">
-  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/ee76ca15-9806-4d78-907b-ff0f3c8bef20" alt="Cart Page" width="700">
+  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/9bece5ff-90bd-4e4a-a203-2a1221568f98" alt="Cart Page" width="700">
 </p>
 
 <p align="center">
-  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/d8422782-2b33-4f03-af39-989d3e0db17f" alt="About Page" width="700">
+  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/2daec223-bacc-428b-a5ac-d2512c275bf5" alt="About Page" width="700">
+</p>
+
+<p align="center">
+  <img src="https://github.com/Its-Anth0ny/YumXpress/assets/81018055/d609d79c-35be-4984-b87b-4b16dec1d8d1" alt="About Page" width="700">
 </p>
 
 ## 🛠️ Technologies Used
