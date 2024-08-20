@@ -1,6 +1,6 @@
 # 🍽️ YumExpress: Online Food Delivery App
 
-Welcome to **YumExpress**, your go-to online food delivery platform! Dive into a world of culinary delights and get your favorite meals delivered straight to your doorsteps, all at the click of a button.
+Welcome to **YumExpress**, your go-to online food delivery platform and in built food recommendation system! Dive into a world of culinary delights and get your favorite meals delivered straight to your doorsteps, all at the click of a button.
 
 ## 🌟 Show Your Support
 If you like this project, please consider giving it a ⭐ on GitHub! Your support is greatly appreciated. Feel free to fork the repository and contribute to making it even better!
@@ -15,7 +15,7 @@ Watch our [video demo](https://www.youtube.com/watch?v=1Q-z4rj4MMU&list=PL77ysEg
 
 ## 🚀 Features
 
-- **Seamless Integration with Swiggy API**: Retrieve real-time restaurant data and menus.
+- **Seamless Integration with Swiggy API**: Retrieve real-time restaurant data and menus and get food recommendations using new AI feature.
 - **Responsive Design**: Beautifully crafted layouts using TailwindCSS that work on all devices.
 - **React Routing**: Smooth and intuitive navigation between pages.
 - **Redux Store**: Efficient state management for your cart and user data.
@@ -51,3 +51,4 @@ Watch our [video demo](https://www.youtube.com/watch?v=1Q-z4rj4MMU&list=PL77ysEg
 - **JavaScript**
 - **HTML5**
 - **Swiggy API**
+- **Gemini API**
